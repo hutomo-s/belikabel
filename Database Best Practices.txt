@@ -1,0 +1,25 @@
+
+Database Design:
+1. ERD
+2. DB Normalization
+3. Data Types
+4. Indexing
+
+"
+1 db only can be accessed from 1 application
+"
+
+Database Operations:
+1. Installation
+2. Configuration
+3. Backup & Restore
+4. Monitoring/Logging
+5. Provisioning
+
+"
+Document & Automate Everything
+"
+
+Database Performance:
+1. Query optimization
+2. Show analyze

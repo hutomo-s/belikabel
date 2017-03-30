@@ -1,0 +1,157 @@
+ssh jlp@52.187.30.123
+pass: PostgresJaya
+
+# lxc ls command
+sudo lxc-ls --fancy
+
+hutomo                RUNNING 0         -      10.0.2.191
+
+ssh ubuntu@10.0.2.191
+pass: ubuntu
+
+
+ssh ubuntu@10.0.2.150
+
+tmux attach-session -t jlp
+
+# exit session tmux
+ctrl b + d
+
+sudo apt install postgresql postgresql-common
+
+
+sudo service postgresql status
+
+sudo su - postgres
+
+# revert fresh os
+# di container!
+sudo shutdown -h now
+
+
+# container (lxc) & zfs
+kegunaan: pre production (staging)
+belum pakai docker: karena belum permanen
+sedangkan lxc: sifat nya permanen
+
+
+ip 52.187.124.93
+
+# new ip
+ssh 52.187.124.93
+
+# wget enterprise db
+wget https://get.enterprisedb.com/postgresql/postgresql-9.6.2-3-linux-x64.run
+# chmod
+chmod +x postgresql-9.6.2-3-linux-x64.run
+# run
+sudo ./postgresql-9.6.2-3-linux-x64.run
+
+# install in: /home/postgres
+
+# command for running previous command with sudo
+sudo !!
+
+# "Host key verification failed" means that the host key of the remote host was changed.
+ssh-keygen -R hostname
+
+
+# check your container snapshot
+sudo zfs list -t snapshot -r rpool/lxc| grep -i hutomo
+
+# rollback: success
+sudo zfs rollback rpool/lxc/hutomo@fresh_os
+
+# start container
+sudo lxc-start -n hutomo
+
+# get the installer from source
+# dot sh
+wget https://raw.githubusercontent.com/nuragus/jlp_aux/master/install_script/postgres_compile.sh
+
+# chmod the sh file
+chmod +x postgres_compile.sh
+
+# make sure you stop the postgres service
+# before run the postgres installer from source
+./postgres_compile.sh
+
+Success. You can now start the database server using:
+
+    pg_ctl -D /usr/local/pgsql/data -l logfile start
+
+server starting
+waiting for server to shut down....LOG:  received fast shutdown request
+LOG:  database system was shut down at 2017-03-25 04:47:53 UTC
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  shutting down
+LOG:  database system is shut down
+ done
+server stopped
+
+# before using pg_ctl
+# switch user first
+sudo su - postgres
+
+pg_log
+vs
+pg_xlog
+
+cd ~/source_postgres/postgresql-9.6.1/src/bin
+
+
+## Configuration (non tuning)
+1. Authentication
+using ip (topologi network)
+md5
+
+2. Wal
+https://www.postgresql.org/docs/9.6/static/runtime-config-wal.html
+
+3. Log
+https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html
+
+
+
+# https://blog.codeship.com/tuning-postgresql-with-pgbench/
+
+createdb pgbench
+
+pgbench -i -S 100 pgbench
+
+pgbench -c 100 -j 4 -t 100 pgbench
+
+# timing
+
+\timing
+
+select name_first from employees where join_date between '2010-01-01' and '2014-12-31' order by join_date limit 10;
+
+explain analyze select name_first from employees where join_date between '2010-01-01' and '2014-12-31' order by join_date limit 10;
+
+https://explain.depesz.com/
+
+Sort Key: join_date
+
+
+Performance Tuning
+
+buffer hit ratio
+
+SELECT
+ sum(heap_blks_read) as heap_read,
+ sum(heap_blks_hit)  as heap_hit,
+ sum(heap_blks_hit) / (sum(heap_blks_hit) + sum(heap_blks_read)) as ratio
+FROM
+ pg_statio_user_tables;
+
+angka minimal: 90
+jika < 90, maka di konfigurasi
+nilai shared buffer nya harus diubah
+
+
+dump backup
+vs
+roll forward backup
+
+point in time recovery (postgres pitr)

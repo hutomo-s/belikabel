@@ -1,0 +1,34 @@
+API for Mobile Apps
+Best Practices
+
+1. Always use http-header
+   - Authentication (on logged in features)
+   - Channel: WEB|ANDROID|IOS
+   - Client-Version: (int) eg: 2
+
+2. Maintenance Mode
+   - for Entire Application
+   - for some-temporary-broken features
+
+3. End of Life or Expired Mode
+   - For Entire Application
+   		Please Upgrade to Continue
+   - For features has been deprecated
+     	Sorry, this feature is deprecated
+
+4. Webview
+   - use custom route group of webview, for ensuring the cohesive from general web application
+		two routes for one page
+		eg: /webview/...
+   - always use http-header
+   		- Authentication (optional)
+		- Channel
+		- Client-Version
+		- Webview: 1
+   - always use GET method
+		- purpose: to easily track/tail from nginx, the requested parameters
+   - put some tracker or logging method
+		to quickly find if there is unknown error (500) coming from webview
+
+5. Versioning
+   Need more reasearch

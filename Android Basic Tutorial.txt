@@ -1,0 +1,36 @@
+
+Become an Android Developer from Scratch
+https://www.udemy.com/become-an-android-developer-from-scratch/
+* Simply the best place to start learning Android Development.
+
+- Knowledge
+- Skills
+- Perspectives
+
+10 TIPS FOR BECOMING A SUCCESSFUL ANDROID DEVELOPER
+
+8. DON’T BE THE BIGGEST FISH IN THE TANK
+
+(my personal favorite.)
+If you decided to get into some development team, try to find one with at least one developer you consider better than yourself. He is the one you are going to learn most from. No matter how experienced you are, this job is about constant development of yourself as well. It’s good to have some mentor of your own.
+
+http://www.schibsted.pl/blog/10-tips-for-becoming-a-successful-android-developer/
+
+
+Android Hello World Tutorial
+https://www.tutorialspoint.com/android/android_hello_world_example.htm
+
+Android Login Tutorial
+https://www.tutorialspoint.com/android/android_php_mysql.htm
+
+Android List from JSON Tutorial
+https://www.tutorialspoint.com/android/android_json_parser.htm
+
+Index
+https://teknorial.com/tutorial-pemrograman-android-studio-bahasa-indonesia/
+
+Membuat ListView di Android Studio
+http://teknorial.com/membuat-listview-di-android-studio/
+
+Tutorial ListView dengan Sumber Data JSON
+http://teknorial.com/tutorial-listview-dengan-sumber-data-json/

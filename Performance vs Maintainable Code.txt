@@ -1,0 +1,6 @@
+
+Performance should not be your top priority. Code should be consistent, maintainable, robust, predictable, safe, and easy to understand. But that’s not to say that performance is “not important”.
+
+Efficient code reduces the load on our servers, reduces the response time of our APIs and web pages, and reduces the runtime of our development tools. Performance is important, but maintainable code should come first.
+
+https://medium.com/@rtheunissen/efficient-data-structures-for-php-7-9dda7af674cd#.6iggvhv5u
