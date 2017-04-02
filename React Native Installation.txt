@@ -1,0 +1,36 @@
+Install React Native
+
+Jakarta, 28 Feb - 1 Mar 2017
+
+http://facebook.github.io/react-native/docs/getting-started.html
+
+Android Studio
+AVD and VM Acceleration
+Android 6.0 SDK
+Must be 23.1
+ANDROID_HOME Variable
+
+Run android virtual device
+android avd
+
+Please using x86 devices
+
+Testing your React Native Installation
+react-native init AwesomeProject 
+cd AwesomeProject 
+
+#important
+react-native start
+react-native run-android
+
+
+Solve Problem on react-native start
+Node.JS Error: ENOSPC
+
+Run this:
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
+http://stackoverflow.com/questions/22475849/node-js-error-enospc/32600959#32600959
+
+
+Success on March 1st, 2017 17.00 WIB :)
